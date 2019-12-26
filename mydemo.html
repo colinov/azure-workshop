@@ -23,12 +23,37 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 
 	request.send()
+
+	var request = new XMLHttpRequest()
+
+	request.open('GET', 'http://40.71.238.122/api/products/api/products', true)
+	request.onload = function() {
+	  // Begin accessing JSON data here
+	  var data = JSON.parse(this.response)
+
+	  if (request.status >= 200 && request.status < 400) {
+	    data.forEach(movie => {
+	      console.log(movie)
+	      const app = document.getElementById('secondroot')
+	      const element = document.createElement('h3')
+	      element.textContent = movie
+	      app.appendChild(element)
+	    })
+	  } else {
+	    console.log('error')
+	  }
+	}
+
+	request.send()
 }, false);
 </script>
 </head>
 <body>
 <div id='root'>
 <H1>HOLA!</H1>
+</div>
+<div id='secondroot'>
+<H1>SUS EQUIPOS SON:</H1>
 </div>
 </body>
 </html>
