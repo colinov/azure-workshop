@@ -24,14 +24,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
 	request.send()
 
-	var request = new XMLHttpRequest()
+	var request2 = new XMLHttpRequest()
 
-	request.open('GET', 'http://40.71.238.122/api/products/api/products', true)
-	request.onload = function() {
+	request2.open('GET', 'http://40.71.238.122/api/products/api/products', true)
+	request2.onload = function() {
 	  // Begin accessing JSON data here
 	  var data = JSON.parse(this.response)
 
-	  if (request.status >= 200 && request.status < 400) {
+	  if (request2.status >= 200 && request2.status < 400) {
 	    data.forEach(movie => {
 	      console.log(movie)
 	      const app = document.getElementById('secondroot')
@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	  }
 	}
 
-	request.send()
+	request2.send()
 }, false);
 </script>
 </head>
